@@ -1,11 +1,10 @@
-import { Button } from '@/components/ui/button'
-import prisma from '@/lib/db'
+import { caller } from "./trpc/server"
 
 
 type Props = {}
 
 const Page = async () => {
-  const users = await prisma.user.findMany()
+  const users = await caller.getUsers()
   return (
     <div className='text-red-500 min-h-screen min-w-screen flex items-center justify-center'>
       {JSON.stringify(users)}
