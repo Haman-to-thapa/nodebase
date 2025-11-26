@@ -28,7 +28,7 @@ model Session {
   expiresAt DateTime
   token     String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
   ipAddress String?
   userAgent String?
   userId    String
@@ -53,7 +53,7 @@ model Account {
   scope                 String?
   password              String?
   createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  updatedAt             DateTime  @default(now()) @updatedAt
 
   @@index([userId])
   @@map("account")
